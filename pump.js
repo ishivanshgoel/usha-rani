@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 let deviceId = "12345";
 let scheduleTime = null;
-let base = "https://ishivanshgoelwot.herokuapp.com"
+let base = "http://localhost:5000"
 
 async function fetchSchedule() {
   const rawResponse = await fetch(
@@ -25,7 +25,7 @@ fetchSchedule()
 
 // keep checking if current time is same as scheduled time
 setInterval(async function () {
-  let currentTime = new Date().toGMTString();
+  let currentTime = new Date().toISOString().slice(0,16);
   console.log("Current Time "+currentTime)
   console.log("Schedule Time "+scheduleTime)
   if (currentTime == scheduleTime) {

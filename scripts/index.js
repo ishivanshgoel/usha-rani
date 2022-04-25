@@ -10,6 +10,9 @@ socket = io(base);
 
 function schedule() {
 
+    deviceId = document.getElementById("deviceId").value;
+    sch = document.getElementById("scheduleTime").value;
+
     fetch(base + "/schedule", {
         method: "POST",
         headers: {
