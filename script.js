@@ -2,9 +2,11 @@ const express = require('express');
 const http = require("http");
 const EventEmitter = require('events');
 const { Server } = require("socket.io");
+const path = require("path");
 
 const app = express();
 app.use(express.json());
+app.use('/scripts', express.static('scripts'))
 
 const myEmitter = new EventEmitter();
 
@@ -22,7 +24,11 @@ let socketMapper = {}
 
 const server = http.createServer(app);
 
-const PORT = 5000
+const PORT = process.env.PORT || 5000
+
+app.get("/", (req, res, next) => {
+    res.sendFile(path.join(__dirname + '/index.html'));
+})
 
 // to save the scheduled timing for water pump
 app.post("/schedule", (req, res, next)=>{

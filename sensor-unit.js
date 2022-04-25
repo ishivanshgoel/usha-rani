@@ -1,8 +1,9 @@
 const fetch = require("node-fetch");
 let deviceId = "12345";
+let base = "https://ishivanshgoelwot.herokuapp.com"
 
 setInterval(async function () {
-  const rawResponse = await fetch("http://localhost:5000/temperature", {
+  const rawResponse = await fetch(`${base}/temperature`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -13,7 +14,7 @@ setInterval(async function () {
 
   console.log("Temperature value sent successfully to Server!");
 
-  const rawResponse2 = await fetch("http://localhost:5000/mositure", {
+  const rawResponse2 = await fetch(`${base}/mositure`, {
     method: "POST",
     headers: {
       Accept: "application/json",

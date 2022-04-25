@@ -1,10 +1,11 @@
 const fetch = require("node-fetch");
 let deviceId = "12345";
 let scheduleTime = null;
+let base = "https://ishivanshgoelwot.herokuapp.com"
 
 async function fetchSchedule() {
   const rawResponse = await fetch(
-    `http://localhost:5000/schedule/?deviceId=${deviceId}`,
+    `${base}/schedule/?deviceId=${deviceId}`,
     {
       method: "GET",
       headers: {
