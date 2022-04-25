@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Irrigation System</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main-div {
+        background-color: beige;
+        max-height: 100vh;
+        padding: 50px;
+      }
+
+      .first {
+        margin: 50px;
+      }
+
+      .second {
+        margin: 50px;
+      }
+
+      .third {
+        margin: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <center class="main-div">
+        <h1><u>Automated Crop Monitoring And Irrigation System</u></h1>
+      <div style="border: 2px dashed black;">
+          <h3><u>Pump Scheduler</u></h3>
+        <div class="first">
+          <input
+            type="text"
+            name="deviceId"
+            id="deviceId"
+            placeholder="Device Id"
+          />
+        </div>
+        <div class="second">
+          <input type="datetime-local" name="scheduleTime" id="scheduleTime" />
+        </div>
+        <div class="third">
+          <button onclick="schedule()">Submit</button>
+        </div>
+      </div>
+
+      <div style="border: 2px dashed black; margin-top: 10px;">
+        <h3><u>Unit Status</u></h3>
+      <div class="first">
+        <h3 id="temp">Temperature: </h3>
+      </div>
+      <div class="second">
+        <h3 id="mois">Moisture: </h3>
+      </div>
+    </div>
+
+    </center>
+  </body>
+  <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+  <script src="./scripts/index.js"></script>
+</html>
